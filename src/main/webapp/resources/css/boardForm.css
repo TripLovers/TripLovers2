@@ -1,0 +1,104 @@
+body{
+    margin: 10px 1600px 0px 50px;
+}
+
+a{
+    text-decoration: none;
+}
+.navbar a{
+    color: #ffffff;
+}
+
+
+.board_container{
+    position: relative;
+    top: 7rem;
+    width: 1200px;
+    left :200px;
+    height: 1000px;
+    background-color: #ffffff;
+}
+.nickname_pass_box{
+    position: relative;
+    top: 3rem;
+    left :70px;
+}
+.id{
+    width:200px;
+    font-size: 15;
+    border:1px solid #808080;
+}
+
+.bp_title_box{
+    position: relative;
+    top: 4rem;
+    left :70px;
+}
+
+
+.bp_title
+{   width:600px;
+    height: 25px; font-size: 15px;
+    border:1px solid #808080;
+}
+
+.board_middle_box{
+    position: relative;
+    top: 5rem;
+    left :70px;
+}
+
+textarea 
+{
+    font-size: 13pt;
+    resize: none;
+    background-color: #ffffff;
+    border:1px solid #808080;
+}
+
+.board_bottom_box{
+    position: relative;
+    top: 6rem;
+    left :70px;
+    display: flex;
+}
+.submit{
+    position: relative;
+    left :810px;
+}
+.cancel{
+    position: relative;
+    left :820px;
+}
+button[id="submit"]{
+    cursor:pointer;
+    color:white;
+    display:block;
+    background-color: #10108f;
+    border:0px solid #10108f;
+    font-size: 20;
+}
+
+button[id="cancel"]{
+    cursor:pointer;
+    color:white;
+    display:block;
+    background-color: #808080;
+    border:0px solid #808080;
+    font-size: 20;
+}
+button[id="post"]{
+    cursor:pointer;
+    color:white;
+    display:block;
+    background-color: #0b6ff4;
+    border:0px solid #0b6ff4;
+    font-size: 20;
+}
+
+
+.post{
+	position: relative;
+    right :80px;
+    
+}
