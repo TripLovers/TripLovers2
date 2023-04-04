@@ -1,0 +1,330 @@
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.container1{
+    margin: auto;
+    width: 60%;
+    height: 20%;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+.container2{
+    margin: 0.5rem auto;
+    width: 100%;
+    height: 45%;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+.container2_imgBox{
+	width: 100%;
+	height: 100%;
+}
+
+.container2_img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+
+.container3{
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+  
+}
+
+.container3_text{
+	
+     margin: 0 auto;
+    text-align: center;  
+    font-size: 2vw;
+   
+  
+}
+.container3_weather{
+     margin: 0 auto;
+    top: 18%;
+    width: 100%;
+    height:82%;
+   
+}
+
+.weather_container1{
+	margin: 0px;
+    width: 100%;
+    height:30%;
+    
+}
+
+.weather1{
+	margin: 0px;
+    float: left;
+    width: 49%;
+    height: 100%;
+    border-width: 1px;
+    border-color: gray;
+    border-style: solid;
+    border-radius: 20px / 20px;
+}
+
+
+.today{
+	position : relative;
+	left: 30%;
+	display: inline-block;
+    width: 100%;
+    height:100%;
+
+}
+
+.today_Date{
+	display: inline-block;
+	height: 100%;
+}
+
+.today_imgBox{
+
+	display: inline-block;
+	
+}
+
+.today_img{
+	margin: 0px;
+	position: relative;
+  	top: 10%;
+  	left:7%;
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+.weather2{
+	margin: 0px;
+    float: right;
+    width: 49%;
+   	height: 100%;
+    border-width: 1px;
+    border-color: gray;
+    border-style: solid;
+    border-radius: 20px / 20px;
+}
+.tomorrow{
+    position : relative;
+	left: 30%;
+	display: inline-block;
+    width: 100%;
+    height:100%;
+
+}
+.tomorrow_imgBox{
+	margin: 0px;
+	display: inline-block;
+	height: 50%;
+}
+.tomorrow_Date{
+	
+	display: inline-block;
+	height: 100%;
+}
+
+.tomorrow_img{
+	margin: 0px;
+	display: inline-block;
+  	position: relative;
+  	top: 10%;
+  	left:7%;
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+
+.weather_container2{
+    margin-top :0.5rem;
+    width: 100%;
+    height:70%;
+   
+}
+.weather3{
+    float: left;
+    width: 19%;
+    height:100%;
+    border-right: solid 1px gray;
+  
+}
+
+.threedays{
+    width: 100%;
+    height:100%;
+
+}
+.threedays_Date{
+	width:100%;
+	text-align: center;
+}
+.threedays_img{
+    position: relative;
+    left: 3vw;
+    width: 3vw;
+    height: 2vw;
+}
+
+.weather4{
+    float: left;
+    width: 19%;
+    height:100%;
+   border-right: solid 1px gray;
+}
+
+.fourdays{
+    width: 100%;
+    height:100%;
+
+}
+.fourdays_Date{
+	width:100%;
+	text-align: center;
+}
+
+
+.fourdays_img{
+    position: relative;
+    left: 3vw;
+   width: 3vw;
+    height: 2vw;
+}
+
+.weather5{
+    float: left;
+    width: 19%;
+    height:100%;
+    border-right: solid 1px gray;
+}
+.fivedays{
+    width: 100%;
+    height:100%;
+
+}
+
+.fivedays_Date{
+	width:100%;
+	text-align: center;
+}
+.fivedays_img{
+    position: relative;
+    left: 3vw;
+    width: 3vw;
+    height: 2vw;
+}
+
+.weather6{
+    float: left;
+    width: 19%;
+    height:100%;
+   border-right: solid 1px gray;
+}
+
+.fixdays{
+    width: 100%;
+    height:100%;
+
+}
+
+.fixdays_Date{
+	width:100%;
+	text-align: center;
+}
+.fixdays_img{
+    position: relative;
+    left: 3vw;
+   width: 3vw;
+    height: 2vw;
+}
+.weather7{
+    float: left;
+    width: 19%;
+    height:100%;
+   border-right: solid 1px gray;
+}
+.sevendays{
+    width: 100%;
+    height:100%;
+}
+
+.sevendays_Date{
+	width:100%;
+	text-align: center;
+}
+.sevendays_img{
+    position: relative;
+    left: 3vw;
+    width: 3vw;
+    height: 2vw;
+}
+
+
+
+.container4{
+    margin: 0 auto;
+    margin-top :2rem;
+    width: 50%;
+    height: 40%;
+}
+.container4_title{
+	width: 100%;
+    height: 13%;
+ 	margin: 0;
+}
+
+.container4_img{
+	width: 100%;
+    height: 80%;
+     margin: 0;
+}
+
+
+.container5{
+    margin: 0 auto;
+    width: 50%;
+    height: 40%;
+   
+}
+
+.container5_title{
+	width: 100%;
+    height: 13%;
+ 	margin: 0;
+}
+
+
+.container5_img{
+	width: 100%;
+    height: 80%;
+    margin: 0;
+}
+
+
+.container6{
+    margin: 0 auto;
+    width: 60%;
+    height: 30%;
+    
+}
+.container7{
+    margin: 0 auto;
+    width: 60%;
+    height: 30%;
+    
+}
