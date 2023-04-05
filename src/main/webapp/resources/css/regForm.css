@@ -1,0 +1,35 @@
+body{
+    background-color: #F5F5F5;
+    margin: 3% 30% 0px 30%;
+}
+
+*{margin:0; padding:0;}
+
+div{
+    width: 500px; margin: 30px auto;
+}
+
+.home_img{
+    width: 410px;
+    height: 100px;
+}
+
+
+li{list-style: none; margin: 10px 0px;}
+
+input, select{height: 40px; font-size: 15px;}
+
+label{line-height: 30px;}
+
+button{
+   
+    cursor:pointer;
+    color:white;
+    display:block;
+    background-color: #0000ff;
+    border:0px solid #0000ff;
+}
+
+.sub{
+    font-size: large;
+}

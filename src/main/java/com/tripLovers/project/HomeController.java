@@ -43,4 +43,9 @@ public class HomeController {
 		
 		return "weatherPage";
 	}
+	
+	@RequestMapping(value = "/regForm", method = RequestMethod.GET)
+	public String regForm() {
+		return"regForm";
+	}
 }
