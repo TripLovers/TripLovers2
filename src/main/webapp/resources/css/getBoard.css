@@ -1,0 +1,119 @@
+body{
+    margin: 10px 1600px 0px 50px;
+}
+
+a{
+	text-decoration: none;
+    color: #000000;
+}
+
+
+.board_container{
+    border-top:2px solid #10108f;
+    
+}
+
+.board_container{
+    position: relative;
+    top: 7rem;
+    width: 1200px;
+    left :200px;
+    height: 1000px;
+    background-color: #ffffff;
+}
+.regdate{
+    position: relative;
+    left:1%;
+    display: inline;
+}
+.pass_box{
+    position: relative;
+    left:2%;
+    display: inline;
+}
+
+.cnt{
+    display: inline;
+    position:relative;
+    left:650px;
+}
+
+
+.board_top{
+    border-bottom:1px solid #808080;
+}
+
+
+.bp_title{  
+    margin: 15px 25px 15px 0px;
+    top: 4rem;
+    width:600px;
+    height: 25px; 
+    font-size: 20px;
+    
+}
+
+.id{
+    width:200px;
+    font-size: 15;
+    display: inline;
+}
+
+
+.board_middle_box{
+    margin-top: 1rem;
+    top: 1rem;
+    
+}
+
+.board_bottom_box{
+    display: flex;
+}
+.cancel{
+    position: relative;
+    left: 1000px;
+}
+.post{
+    position: relative;
+    left: 1010px;
+}
+input[id="post"]{
+    cursor:pointer;
+    color:white;
+    display:block;
+    background-color: #10108f;
+    border:0px solid #10108f;
+    font-size: 20;
+}
+
+input[id="cancel"]{
+    cursor:pointer;
+    color:white;
+    display:block;
+    background-color: #808080;
+    border:0px solid #808080;
+    font-size: 20;
+}
+
+#bp_title
+{
+    font-size: 13pt;
+    resize: none;
+    border: none;
+    background-color: #ffffff;
+}
+   
+}
+input[id="comment_submit"]{
+    cursor:pointer;
+    color:white;
+    display:block;
+    background-color: #3a3abf;
+    border:0px solid #10108f;
+    font-size: 15px;
+}
+
+
+.page{
+
+    text-align:center;
