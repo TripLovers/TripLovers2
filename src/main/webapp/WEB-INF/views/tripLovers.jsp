@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,11 +20,18 @@
 
 		<div class="top_container pt-2">
 			<div class="w-100 d-flex justify-content-end">
-				<a href="#" class="btn btn-primary mr-2" style="margin-right: 5px;">로그인</a>
+				<c:if test="${sessionId eq null }">
+				<a href="loginForm" class="btn btn-primary mr-2" style="margin-right: 5px;">로그인</a>
 				<a href="regForm" class="btn btn-primary">회원가입</a>
+				</c:if>
+				<c:if test="${sessionId ne null }">
+				<a href="updateUser" class="btn btn-primary mr-2" style="margin-right: 5px;">회원정보</a>
+				<a href="logOut" class="btn btn-primary">로그아웃</a>
+				</c:if>
 			</div>
+			
 			<div class="top_title">
-				<h1 class="title">Trip Lovers</h1>
+				<h1 class="title"><a href="/project" style="color:#38CCFB"><img src="resources/img/title_img.jpg"></a></h1>
 			</div>
 
 			<div class="navi_bar">

@@ -48,4 +48,14 @@ public class HomeController {
 	public String regForm() {
 		return"regForm";
 	}
+	
+	//·Î±×ÀÎ
+		@RequestMapping(value = "/loginForm", method = RequestMethod.GET)
+		public String loginForm() {
+			
+			return "loginForm";
+		}
+	
+	
+	
 }

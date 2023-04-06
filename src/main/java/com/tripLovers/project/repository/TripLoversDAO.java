@@ -1,10 +1,7 @@
 package com.tripLovers.project.repository;
 
 
-<<<<<<< HEAD
 import java.util.Date;
-=======
->>>>>>> fb46fc259462b45b2a564cf4846423074438759d
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,26 +10,20 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.tripLovers.project.maprow.BoardRowMapper;
+import com.tripLovers.project.maprow.UserRowMapper;
 
 import domain.BoardVO;
-<<<<<<< HEAD
 import domain.UserVO;
-=======
->>>>>>> fb46fc259462b45b2a564cf4846423074438759d
 
 
 @Repository
 public class TripLoversDAO {
-<<<<<<< HEAD
+
 	
 	private final String INSERT_USER = "insert into users(id, pass, sex, email, year, month, day, phone, time) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private final String ID_CHECK="select id from users where id = ?";
 	
-	//Í≤åÏãúÌåê
-=======
-
-	
->>>>>>> fb46fc259462b45b2a564cf4846423074438759d
+	//∞‘Ω√∆«
 	private final String INSERT_BOARD ="insert into board(num, writer, pass, regdate, title, content ,ip) values((select nvl(max(num),0)+1 from board), ?, ?, ?, ?, ?, ? )";
 	private final String GET_BOARDLIST ="select * from board ORDER BY num DESC";
 	private final String GET_BOARD = "select * from board where num =?";
@@ -41,11 +32,19 @@ public class TripLoversDAO {
 	private final String UPDATE_BOARD = "update board set writer=?, pass=?, title=?, regdate=?, content=?, ip=? where num=?";
 	private final String DELETE_BOARD ="delete board where num=?";
 	
+	//∑Œ±◊¿Œ
+	private final String USER_PASSCHECK ="select pass from users where id = ?";
+	//»∏ø¯¡∂»∏
+	private final String GET_USER="select * from users where id = ?";
+	//»∏ø¯ ¡§∫∏ ºˆ¡§
+	private final String UPDATE_USER="update users set pass=?, sex=?, email=?, year=?, month=?, day=?, phone=? where id =?";
+	//»∏ø¯ ªË¡¶
+	private final String DELETE_USER="delete users where id =?";
 
 	@Autowired(required = false)
 	private JdbcTemplate jdbcTemplate;
 	
-	// Í≤åÏãúÌåê
+	// ∞‘Ω√∆«
 	public void insertBoard(BoardVO vo) {
 		System.out.println("JDBC insertBoard");
 		jdbcTemplate.update(INSERT_BOARD, vo.getWriter(), vo.getPass(), vo.getRegdate(), vo.getTitle(), vo.getContent(), vo.getIp());
@@ -89,7 +88,7 @@ public class TripLoversDAO {
 		jdbcTemplate.update(DELETE_BOARD,vo.getNum());
 	}
 	
-<<<<<<< HEAD
+
 	public void insertUser(UserVO vo) {
 		System.out.println("JDBC inserteUser()");	
 		//System.out.println(vo.getId()+vo.getPass()+vo.getSex()+ vo.getEmail()+ vo.getYear()+vo.getMonth()+ vo.getDay()+ vo.getPhone()+ new Date());
@@ -105,7 +104,33 @@ public class TripLoversDAO {
 			return null;
 		}
 	}
-=======
->>>>>>> fb46fc259462b45b2a564cf4846423074438759d
 	
+	//»∏ø¯¡∂»∏
+		public UserVO getUser(UserVO vo) {
+			System.out.println("JDBC getUser");
+			Object[] args = {vo.getId()};
+			return jdbcTemplate.queryForObject(GET_USER, args, new UserRowMapper());
+		}
+		
+		//»∏ø¯ ¡§∫∏ ºˆ¡§
+		public void updateUser(UserVO vo) {
+			System.out.println("JDBC updateUser");
+			jdbcTemplate.update(UPDATE_USER, vo.getPass(), vo.getSex(), vo.getEmail(), vo.getYear(), vo.getMonth(), vo.getDay(), vo.getPhone(),vo.getId());
+		}
+		//»∏ø¯ ≈ª≈
+		public void deleteUser(UserVO vo) {
+			System.out.println("JDBC deleteUser");
+			jdbcTemplate.update(DELETE_USER,vo.getId());
+		}	
+	
+		public String userPassCheck(UserVO vo) {
+			System.out.println("JDBC userpassCheck");
+			
+			try {
+				return jdbcTemplate.queryForObject(USER_PASSCHECK,String.class ,vo.getId() );
+			} catch (Exception e) {
+				return "-1";
+			}
+			
+		}
 }
