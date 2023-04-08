@@ -23,6 +23,10 @@ public class RegFormController {
 	@RequestMapping(value="/signup", method = RequestMethod.POST)
 	public String SignUpController(UserVO vo,Model model) {
 		
+		if(!vo.getPass().equals(request.getParameter("repass"))) {
+			model.addAttribute("pass", "-1");
+			return "regForm";
+		}
 		if(regFormService.idCheck(vo)!=null) {
 			model.addAttribute("id", "-1");
 			return "regForm";

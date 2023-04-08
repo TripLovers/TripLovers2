@@ -25,7 +25,7 @@
     <div class="top_container">
             
             <div class="top_title">
-                <h1 class="title"><a href="/" style="color:#38CCFB">Trip Lovers</a></h1>
+                <h1 class="title"><a href="/project" style="color:#38CCFB"><img src="resources/img/title_img.jpg"></a></h1>
             </div>
 
             <div class="navi_bar">
@@ -35,7 +35,7 @@
                 </a>
                 </div>
                 <div class="navi_bar_choice" >
-                    <a href="" style="color:white">
+                    <a href="/project" style="color:white">
                     <span>식도락</span>
                 </a>
                 </div>
@@ -129,7 +129,9 @@
    <a href="boardList?pageNum=${forPaging-maxNum}">[다음]</a>
    </c:if>
    
-   
+   <%-- <c:forEach var="i" begin="0" end="${lastNum-1}" step="1"  >
+   	<a href="boardList?pageNum=${lastNum-i}">[${lastNum-i}]</a>
+   </c:forEach> --%>
    </div>
    </c:if>
 </body>

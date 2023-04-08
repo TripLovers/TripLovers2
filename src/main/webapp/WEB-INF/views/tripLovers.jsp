@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,9 +16,10 @@
 
 <title>Document</title>
 </head>
+
+<%session.setAttribute("sessionId", session.getAttribute("sessionId")); %>
 <body style="width: 100%; padding: 0 100px;">
 	<div class="container">
-
 		<div class="top_container pt-2">
 			<div class="w-100 d-flex justify-content-end">
 				<c:if test="${sessionId eq null }">
@@ -28,25 +30,31 @@
 				<a href="updateUser" class="btn btn-primary mr-2" style="margin-right: 5px;">회원정보</a>
 				<a href="logOut" class="btn btn-primary">로그아웃</a>
 				</c:if>
+				
+				
+				
+				
 			</div>
-			
 			<div class="top_title">
 				<h1 class="title"><a href="/project" style="color:#38CCFB"><img src="resources/img/title_img.jpg"></a></h1>
 			</div>
 
-			<div class="navi_bar">
+			<div class="navi_bar">	
 				<div class="navi_bar_choice">
 				<a href="weather">
 					<span>여행지 선택</span>
 				</a>
 				</div>
+				
 				<div class="navi_bar_choice">
+				<a href="/project">
 					<span>식도락</span>
+					</a>				
 				</div>
-				<div class="navi_bar_choice">
-				<a href="boardList">
+				<div class="navi_bar_choice">		
+				<a href="boardList">		
 					<span onclick="location.href='/boardtwo/list.bdo'">커뮤니티</span>
-				</a>
+				</a> 
 				</div>
 				
 

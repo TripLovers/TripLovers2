@@ -57,9 +57,103 @@
         </div>
         </form>
         
-                
+                 
+        <div class="comment_box">
+        <c:if test="${totalNum-1 >= 0 }">
+        <c:if test="${fn:length(boardCommentList) > 0 }">
+        <c:if test="${firtstBoardNum >=0 }"> 
+        <c:forEach var="i" begin="0" end="${totalNum-1}" step="1"  >
         
+        	<table class="board_table" >
+		        <colgroup>
+		                 <col style="width: 150px">
+		                 <col style="width: 900px">
+		                 <col style="width: 150px">
+		        </colgroup>
+		        <thead>
+		            <tr>
+		           </tr>
+		        </thead>
+		        <tbody>
+		               <tr>
+		                   <td>${boardCommentList[(lastNum-pageNum)*totalNum+i].comment_id }</td>    
+		                   <td>${boardCommentList[(lastNum-pageNum)*totalNum+i].comment_content } </td>
+		                   <td>${boardCommentList[(lastNum-pageNum)*totalNum+i].simpleTime } </td>
+		                      
+		               </tr>
+		         </tbody>
+		         <hr>
+        </c:forEach>
+        </c:if>
+        </c:if>
+        </c:if>
+         
+        <c:if test="${totalNum-1 >= 0 }">
+        <c:if test="${fn:length(boardCommentList) > 0 }">
+         <c:if test="${firtstBoardNum <0 }">
        
+        <c:forEach var="i" begin="0" end="${fn:length(boardCommentList)-(lastNum-pageNum)*totalNum}" step="1"  >
+        
+        	<table class="board_table" >
+		        <colgroup>
+		                 <col style="width: 150px">
+		                 <col style="width: 900px">
+		                 <col style="width: 150px">
+		        </colgroup>
+		        <thead>
+		            <tr>
+		           </tr>
+		        </thead>
+		        <tbody>
+		               <tr>
+		                   <td>${boardCommentList[(lastNum-pageNum)*totalNum+i].comment_id }</td>    
+		                   <td>${boardCommentList[(lastNum-pageNum)*totalNum+i].comment_content } </td>
+		                   <td>${boardCommentList[(lastNum-pageNum)*totalNum+i].simpleTime } </td>
+		                      
+		               </tr>
+		         </tbody>
+		         <hr>
+        </c:forEach>
+        </c:if>
+        </c:if>
+        </c:if>
+        
+        
+        
+        
+        
+        
+        </table>
+        </div>
+        <c:if test="${maxNum-1 >= 0 }">
+        <div class="page" > 
+        <c:if test="${(forPaging)<lastNum}">
+	   <a href="getBoard?pageNum=${forPaging+maxNum}&num=${board.num }">[이전]</a>
+	   </c:if>
+	   <c:forEach var="i" begin="0" end="${maxNum-1}" step="1"  >
+	   	<a href="getBoard?pageNum=${forPaging-i}&num=${board.num }">[${forPaging-i}]</a>
+	   </c:forEach>
+	   <c:if test="${(pageNum-maxNum)>0 }">
+	   <a href="getBoard?pageNum=${forPaging-maxNum}&num=${board.num }">[다음]</a>
+	   </c:if>
+	  
+	   </div>
+	    </c:if>
+	   
+        <div class="comment_write">
+            <form action="insertBoardComment?num=${board.num }" method="post">
+                <div class="comment_id_pass_box">
+                    <p class="comment_id"><input type="text" name = comment_id  placeholder="아이디" maxlength="10" style="width:140px; height:25px;"></p>
+                    <p class="comment_pass" > <input type="password" name = comment_pass placeholder="비밀번호" style="width:140px; height:25px"></p>
+                </div>
+                <div class="comment_content">
+                    <textarea type="text" name="comment_content" cols="103" rows="4" id="comment_content" maxlength="100" placeholder="내용을 입력해 주세요" autocomplete="off" required></textarea>
+                </div>
+                <div class="comment_submit">
+                    <input type="submit" id="comment_submit" style="width:85px; height:40px" value="등록">
+                </div>
+            </form>
+        </div>
     </div>
    </session>
 </body>

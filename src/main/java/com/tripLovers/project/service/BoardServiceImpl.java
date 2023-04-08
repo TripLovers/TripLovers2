@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.tripLovers.project.repository.TripLoversDAO;
 
+import domain.BoardCommentVO;
 import domain.BoardVO;
 
 @Service
@@ -68,6 +69,26 @@ public class BoardServiceImpl implements BoardService {
 		vo.setNum(num);
 		tripLoverDAO.deleteBoard(vo);
 	}
+		
+	//게시판 댓글
+	public void insertBoardComment(BoardCommentVO vo) {
+		Timestamp time = new Timestamp(System.currentTimeMillis());
+		vo.setTime(time);
+		tripLoverDAO.insertBoardComment(vo);
+	}
+	public List<BoardCommentVO> getBoardComment(int num){
+		SimpleDateFormat sd = new SimpleDateFormat("MM-dd hh:mm:ss"); 
+		List<BoardCommentVO> boardCommentList =tripLoverDAO.getBoardComment(num);
+		for(int i=0;i<boardCommentList.size(); i++) {
+			boardCommentList.get(i).setSimpleTime(sd.format(boardCommentList.get(i).getTime())); 
+			//System.out.println("getTime"+sd.format(boardList.get(i).getTime()));
+			//System.out.println("getSimpleTime"+boardList.get(i).getSimpleTime());
+			}
+		return boardCommentList;
+	}
 	
+	public void deleteBoardCommnet(BoardVO vo) {
+		tripLoverDAO.deleteBoardCommnet(vo);
+	}
 	
 }

@@ -19,7 +19,7 @@
         <div class="top_container pt-2">
 			
 			<div class="top_title">
-				<h1 class="title"><a href="/project" style="color:#38CCFB">Trip Lovers</a></h1>
+				<h1 class="title"><a href="/project" style="color:#38CCFB"><img src="resources/img/title_img.jpg"></a></h1>
 			</div>
 
 			<div class="navi_bar">
@@ -29,7 +29,7 @@
 				</a>
 				</div>
 				<div class="navi_bar_choice">
-					<a href="">
+					<a href="/project">
 					<span >식도락</span>
 					</a>
 				</div>

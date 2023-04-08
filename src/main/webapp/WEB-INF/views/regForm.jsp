@@ -26,7 +26,7 @@
 
 <body>
     <div>
-        <a href="/project/hoepage"><img class="home_img" src="resources/img/main.png" alt="logo"></a>
+        <a href="/project"><img class="home_img" src="resources/img/title_img.jpg" alt="logo"></a>
             <form action="/project/signup" method="POST" >
        
                 <ul>

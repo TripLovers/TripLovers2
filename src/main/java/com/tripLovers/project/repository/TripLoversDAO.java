@@ -1,6 +1,5 @@
 package com.tripLovers.project.repository;
 
-
 import java.util.Date;
 import java.util.List;
 
@@ -9,21 +8,21 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.tripLovers.project.maprow.BoardCommentRowMapper;
 import com.tripLovers.project.maprow.BoardRowMapper;
 import com.tripLovers.project.maprow.UserRowMapper;
 
+import domain.BoardCommentVO;
 import domain.BoardVO;
 import domain.UserVO;
 
-
 @Repository
 public class TripLoversDAO {
-
 	
 	private final String INSERT_USER = "insert into users(id, pass, sex, email, year, month, day, phone, time) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private final String ID_CHECK="select id from users where id = ?";
 	
-	//°Ô½ÃÆÇ
+	//ê²Œì‹œíŒ
 	private final String INSERT_BOARD ="insert into board(num, writer, pass, regdate, title, content ,ip) values((select nvl(max(num),0)+1 from board), ?, ?, ?, ?, ?, ? )";
 	private final String GET_BOARDLIST ="select * from board ORDER BY num DESC";
 	private final String GET_BOARD = "select * from board where num =?";
@@ -32,19 +31,63 @@ public class TripLoversDAO {
 	private final String UPDATE_BOARD = "update board set writer=?, pass=?, title=?, regdate=?, content=?, ip=? where num=?";
 	private final String DELETE_BOARD ="delete board where num=?";
 	
-	//·Î±×ÀÎ
+	//ê²Œì‹œíŒ ëŒ“ê¸€
+	private final String INSERT_BOARDCOMMENT ="insert into  board_comment(seq, num, id, pass, content, time) values((select nvl(max(seq),0)+1 from board_comment), ?, ?, ?, ?, ?)";
+	private final String GET_BOARDCOMMNET="select * from board_comment where num = ? order by seq desc";
+	
+	//ê²Œì‹œíŒì´ ì§€ì›Œì§€ë©´ ëŒ“ê¸€ë„ ì§€ì›Œì§
+	private final String DELETE_COMMENT ="delete board_comment where num = ?";
+	
+	//ë¡œê·¸ì¸
 	private final String USER_PASSCHECK ="select pass from users where id = ?";
-	//È¸¿øÁ¶È¸
+	//íšŒì›ì¡°íšŒ
 	private final String GET_USER="select * from users where id = ?";
-	//È¸¿ø Á¤º¸ ¼öÁ¤
+	//íšŒì› ì •ë³´ ìˆ˜ì •
 	private final String UPDATE_USER="update users set pass=?, sex=?, email=?, year=?, month=?, day=?, phone=? where id =?";
-	//È¸¿ø »èÁ¦
+	//íšŒì› ì‚­ì œ
 	private final String DELETE_USER="delete users where id =?";
-
+	
+	
+	
 	@Autowired(required = false)
 	private JdbcTemplate jdbcTemplate;
+
+	public void insertUser(UserVO vo) {
+		System.out.println("JDBC inserteUser()");	
+		//System.out.println(vo.getId()+vo.getPass()+vo.getSex()+ vo.getEmail()+ vo.getYear()+vo.getMonth()+ vo.getDay()+ vo.getPhone()+ new Date());
+		jdbcTemplate.update(INSERT_USER, vo.getId(),vo.getPass(),vo.getSex(), vo.getEmail(), vo.getYear(), vo.getMonth(), vo.getDay(), vo.getPhone(), new Date());
+	}
 	
-	// °Ô½ÃÆÇ
+	//íšŒì›ì¡°íšŒ
+	public UserVO getUser(UserVO vo) {
+		System.out.println("JDBC getUser");
+		Object[] args = {vo.getId()};
+		return jdbcTemplate.queryForObject(GET_USER, args, new UserRowMapper());
+	}
+	
+	//íšŒì› ì •ë³´ ìˆ˜ì •
+	public void updateUser(UserVO vo) {
+		System.out.println("JDBC updateUser");
+		jdbcTemplate.update(UPDATE_USER, vo.getPass(), vo.getSex(), vo.getEmail(), vo.getYear(), vo.getMonth(), vo.getDay(), vo.getPhone(),vo.getId());
+	}
+	//íšŒì› íƒˆí‡´
+	public void deleteUser(UserVO vo) {
+		System.out.println("JDBC deleteUser");
+		jdbcTemplate.update(DELETE_USER,vo.getId());
+	}
+	
+	public String idCheck(UserVO vo) {
+		System.out.println("JDBC idCheck");
+		try {
+			//System.out.println(jdbcTemplate.queryForObject(ID_CHECK, String.class, vo.getId()));
+		return jdbcTemplate.queryForObject(ID_CHECK, String.class, vo.getId());
+		}catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+		
+	
+	// ê²Œì‹œíŒ
 	public void insertBoard(BoardVO vo) {
 		System.out.println("JDBC insertBoard");
 		jdbcTemplate.update(INSERT_BOARD, vo.getWriter(), vo.getPass(), vo.getRegdate(), vo.getTitle(), vo.getContent(), vo.getIp());
@@ -88,49 +131,34 @@ public class TripLoversDAO {
 		jdbcTemplate.update(DELETE_BOARD,vo.getNum());
 	}
 	
-
-	public void insertUser(UserVO vo) {
-		System.out.println("JDBC inserteUser()");	
-		//System.out.println(vo.getId()+vo.getPass()+vo.getSex()+ vo.getEmail()+ vo.getYear()+vo.getMonth()+ vo.getDay()+ vo.getPhone()+ new Date());
-		jdbcTemplate.update(INSERT_USER, vo.getId(),vo.getPass(),vo.getSex(), vo.getEmail(), vo.getYear(), vo.getMonth(), vo.getDay(), vo.getPhone(), new Date());
+	//ê²Œì‹œíŒ ëŒ“ê¸€
+	
+	public void insertBoardComment(BoardCommentVO vo) {
+		System.out.println("JDBC insertBoardComment");
+		jdbcTemplate.update(INSERT_BOARDCOMMENT, vo.getNum(), vo.getComment_id(), vo.getComment_pass(), vo.getComment_content(),vo.getTime());
 	}
 	
-	public String idCheck(UserVO vo) {
-		System.out.println("JDBC idCheck");
+	public List<BoardCommentVO> getBoardComment(int num){
+		System.out.println("JDBC getBoardComment");
+		Object[] args = {num};
+		return jdbcTemplate.query(GET_BOARDCOMMNET,args, new BoardCommentRowMapper());
+	}
+	
+	//ê²Œì‹œíŒ ëŒ“ê¸€ ì‚­ì œ
+	public void deleteBoardCommnet(BoardVO vo) {
+		System.out.println("JDBC deleteBoardComment");
+		jdbcTemplate.update(DELETE_COMMENT,vo.getNum());
+	}
+	//ë¡œê·¸ì¸
+	
+	public String userPassCheck(UserVO vo) {
+		System.out.println("JDBC userpassCheck");
+		
 		try {
-			//System.out.println(jdbcTemplate.queryForObject(ID_CHECK, String.class, vo.getId()));
-		return jdbcTemplate.queryForObject(ID_CHECK, String.class, vo.getId());
-		}catch (EmptyResultDataAccessException e) {
-			return null;
-		}
-	}
-	
-	//È¸¿øÁ¶È¸
-		public UserVO getUser(UserVO vo) {
-			System.out.println("JDBC getUser");
-			Object[] args = {vo.getId()};
-			return jdbcTemplate.queryForObject(GET_USER, args, new UserRowMapper());
+			return jdbcTemplate.queryForObject(USER_PASSCHECK,String.class ,vo.getId() );
+		} catch (Exception e) {
+			return "-1";
 		}
 		
-		//È¸¿ø Á¤º¸ ¼öÁ¤
-		public void updateUser(UserVO vo) {
-			System.out.println("JDBC updateUser");
-			jdbcTemplate.update(UPDATE_USER, vo.getPass(), vo.getSex(), vo.getEmail(), vo.getYear(), vo.getMonth(), vo.getDay(), vo.getPhone(),vo.getId());
-		}
-		//È¸¿ø Å»Åğ
-		public void deleteUser(UserVO vo) {
-			System.out.println("JDBC deleteUser");
-			jdbcTemplate.update(DELETE_USER,vo.getId());
-		}	
-	
-		public String userPassCheck(UserVO vo) {
-			System.out.println("JDBC userpassCheck");
-			
-			try {
-				return jdbcTemplate.queryForObject(USER_PASSCHECK,String.class ,vo.getId() );
-			} catch (Exception e) {
-				return "-1";
-			}
-			
-		}
+	}
 }

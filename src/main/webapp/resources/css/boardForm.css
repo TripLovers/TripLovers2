@@ -87,18 +87,3 @@ button[id="cancel"]{
     border:0px solid #808080;
     font-size: 20;
 }
-button[id="post"]{
-    cursor:pointer;
-    color:white;
-    display:block;
-    background-color: #0b6ff4;
-    border:0px solid #0b6ff4;
-    font-size: 20;
-}
-
-
-.post{
-	position: relative;
-    right :80px;
-    
-}

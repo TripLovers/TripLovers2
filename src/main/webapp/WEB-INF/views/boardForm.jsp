@@ -12,6 +12,12 @@
     <title></title>
    
 </head>
+<c:if test="${sessionId eq null}">
+<script type="text/javascript">
+alert("로그인을 해주세요");
+history.go(-1);
+</script>
+</c:if>
 <body>
     <header>
     </header>

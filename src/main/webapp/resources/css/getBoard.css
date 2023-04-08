@@ -102,6 +102,57 @@ input[id="cancel"]{
     border: none;
     background-color: #ffffff;
 }
+
+#comment_content
+{   
+    font-size: 13pt;
+    resize: none;
+    background-color: #ffffff;  
+}
+.comment_box{
+	
+	margin-top:4px;
+    border-top: 2px solid #10108f;
+    
+}
+.comment{
+	margin-top:4px;
+	margin-bottom:6px;
+    border-bottom: 0.5px solid #c0c0c0;
+}
+
+.comment_write{
+	margin-top:0.5rem;
+	border-top: 2px solid #10108f;
+    border-bottom: 2px solid #10108f;
+    
+}
+
+.comment_pass{
+    margin-top :2px;
+}
+
+.comment_id{
+    margin-top :4px;
+    margin-bottom :0;
+}
+.comment_id_pass_box{
+    position: relative;
+    bottom: 1.3em;
+    display: inline-block
+}
+
+.comment_content{
+    width: 1000px; 
+	height:100px;
+    position: relative;
+    top : 15px;
+    display: inline-block
+}
+.comment_submit{
+    margin-bottom: 5px;
+    position: relative;   
+    left: 65rem;
    
 }
 input[id="comment_submit"]{
@@ -113,7 +164,19 @@ input[id="comment_submit"]{
     font-size: 15px;
 }
 
-
+.comement_name{
+    display: inline-block
+}
+.comement_text{
+    position: relative;
+    left: 100px;
+    display: inline-block
+}
+.comement_time{
+    position: relative;
+    left: 950px;
+    display: inline-block
+}
 .page{
 
     text-align:center;
